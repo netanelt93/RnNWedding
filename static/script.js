@@ -30,63 +30,6 @@ window.onload = function() {
         slotRow.appendChild(slot);
     }
 
-// Touch event handlers
-window.addEventListener('touchstart', handleTouchStart, { passive: false });
-window.addEventListener('touchmove', handleTouchMove, { passive: false, cancelable: true });
-window.addEventListener('touchend', handleTouchEnd, { passive: false });
-
-function handleTouchStart(event) {
-    event.preventDefault(); // Prevent default touch behavior
-    const touch = event.touches[0];
-    dragged = document.elementFromPoint(touch.clientX, touch.clientY).closest('.picture');
-
-    if (dragged) {
-        const rect = dragged.getBoundingClientRect();
-        initialX = touch.clientX - rect.left;
-        initialY = touch.clientY - rect.top;
-        dragged.style.position = 'absolute'; // Set position to absolute
-    }
-}
-
-function handleTouchMove(event) {
-    event.preventDefault(); // Prevent default touch behavior
-
-    if (dragged) {
-        const touch = event.touches[0];
-        dragged.style.left = `${touch.clientX - initialX}px`;
-        dragged.style.top = `${touch.clientY - initialY}px`;
-    }
-}
-
-
-function handleTouchEnd(event) {
-    if (dragged) {
-        const slots = document.querySelectorAll('.slot');
-        const droppedOnSlot = [...slots].some(slot => isOverElement(dragged, slot));
-
-        if (droppedOnSlot) {
-            // Handle successful drop
-            const targetSlot = [...slots].find(slot => isOverElement(dragged, slot));
-            targetSlot.appendChild(dragged);
-            dragged.style.position = 'static';
-        } else {
-            // Handle unsuccessful drop, reset position
-            dragged.style.left = '';
-            dragged.style.top = '';
-        }
-
-        dragged = null;
-    }
-}
-    function createPictureDiv(picture) {
-    const div = document.createElement('div');
-    div.className = 'picture';
-    div.innerHTML = `
-        <img src="${picture.src}" onclick="showOriginalSize('${picture.src}')">
-        <div class="hidden-number">${picture.number}</div>
-    `;
-    return div;
-}
     // Initialize numbers to be hidden
     const hiddenNumbers = document.querySelectorAll('.hidden-number');
     hiddenNumbers.forEach(number => {
