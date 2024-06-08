@@ -41,6 +41,11 @@
             transform: scale(1.05);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
         }
+        .picture {
+    touch-action: none; /* Disable default touch behaviors */
+    user-select: none; /* Prevent text selection */
+    position: absolute; /* Allow absolute positioning */
+}
         .picture img {
             width: 100%;
             height: 100%;
