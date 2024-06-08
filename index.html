@@ -12,20 +12,21 @@
             background-color: #f0f0f0;
         }
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 20px;
         }
         .row {
+            width: 100%;
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
         .slot, .picture {
-            width: calc(50% - 20px); /* Adjust width for two pictures per row on mobile */
-            max-width: 300px;
-            height: auto; /* Allow height to adjust based on aspect ratio */
+            width: 300px;
+            height: 300px;
             margin: 10px;
             border: 2px dashed #ccc;
             display: flex;
@@ -42,9 +43,9 @@
         }
         .picture img {
             width: 100%;
-            height: auto; /* Allow height to adjust based on aspect ratio */
+            height: 100%;
             object-fit: cover;
-            cursor: grab; /* Change cursor to indicate draggability */
+            cursor: pointer;
         }
         .hidden-number {
             display: none;
@@ -132,11 +133,6 @@
             border-radius: 5px;
             outline: none;
         }
-        @media (max-width: 768px) {
-            .slot, .picture {
-                width: calc(100% - 20px); /* Display one picture per row on smaller screens */
-            }
-        }
     </style>
 </head>
 <body>
@@ -167,14 +163,20 @@
             <p id="resultText" style="font-size: 24px; font-weight: bold; color: #28a745;"></p>
         </div>
     </div>
-    <div id="secondQuestion" class="container" style="display: none;">
-        <h1 class="title">שאלה הבאה, את התשובה תגידו לברמן</h1>
-        <h2 id="dynamicTitle" class="title" dir="rtl">say it to the bartender</h2>
-    </div>
+<div id="secondQuestion" class="container" style="display: none;">
+    <h1 class="title">
+        שאלה הבאה, את התשובה תגידו לברמן
+    </h1>
+    <h1 class="title">
+        
+    </h1>
+    <h2 id="dynamicTitle" class="title" dir="rtl">say it to the bartender</h2>
+</div>
+
 
     <div id="imageModal" class="modal">
         <span class="close">&times;</span>
-        <img class="modal-content" id="originalImage" alt="Original Image">
+        <img class="modal-content" id="originalImage">
     </div>
 
     <script src="static/script.js"></script>
