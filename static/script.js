@@ -30,7 +30,7 @@ window.onload = function() {
         slotRow.appendChild(slot);
     }
 
-    // Touch event handlers
+// Touch event handlers
 window.addEventListener('touchstart', handleTouchStart, { passive: false });
 window.addEventListener('touchmove', handleTouchMove, { passive: false, cancelable: true });
 window.addEventListener('touchend', handleTouchEnd, { passive: false });
@@ -44,6 +44,7 @@ function handleTouchStart(event) {
         const rect = dragged.getBoundingClientRect();
         initialX = touch.clientX - rect.left;
         initialY = touch.clientY - rect.top;
+        dragged.style.position = 'absolute'; // Set position to absolute
     }
 }
 
@@ -52,11 +53,11 @@ function handleTouchMove(event) {
 
     if (dragged) {
         const touch = event.touches[0];
-        dragged.style.position = 'absolute';
         dragged.style.left = `${touch.clientX - initialX}px`;
         dragged.style.top = `${touch.clientY - initialY}px`;
     }
 }
+
 
 function handleTouchEnd(event) {
     if (dragged) {
