@@ -48,7 +48,7 @@ window.onload = function() {
         slot.ondragover = dragOver;
         slot.ondrop = drop;
         slotRow.appendChild(slot);
-        slot.innerText=i+1
+        slot.innerText=i+1;
     }
 
     // Initialize numbers to be hidden
