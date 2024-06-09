@@ -47,9 +47,8 @@ window.onload = function() {
         slot.className = 'slot';
         slot.ondragover = dragOver;
         slot.ondrop = drop;
-
-
-        slotRow.appendChild(slot);    }
+        slotRow.appendChild(slot);
+    }
 
     // Initialize numbers to be hidden
     const hiddenNumbers = document.querySelectorAll('.hidden-number');
