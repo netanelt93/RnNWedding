@@ -47,6 +47,9 @@ window.onload = function() {
         slot.className = 'slot';
         slot.ondragover = dragOver;
         slot.ondrop = drop;
+        const number = document.createElement('span');
+        number.innerText = i + 1; // Add the number (1-based index)
+        slot.appendChild(number);
         slotRow.appendChild(slot);
     }
 
