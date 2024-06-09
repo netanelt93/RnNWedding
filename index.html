@@ -148,7 +148,14 @@
             display: flex;
             justify-content: center;
         }
-
+        .slot-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px; /* Adjust the font size as needed */
+            color: #333; /* Adjust the color as needed */
+        }
         .pincode-box {
             width: 50px;
             height: 50px;
@@ -341,6 +348,11 @@
         </div>
         <div class="row" id="slotRow">
             <!-- Empty slots will be generated here -->
+            <div class="slot">
+                <div class="slot-number"></div>
+            </div>
+            <!-- Add the same structure for all slots -->
+        </div>
         </div>
         <div>
             <button id="checkBtn" onclick="checkOrder()" disabled>Check</button>
