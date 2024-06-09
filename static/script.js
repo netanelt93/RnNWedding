@@ -22,6 +22,26 @@ window.onload = function() {
         pictureRow.appendChild(div);
     });
 
+    const images = document.querySelectorAll('.disable-context-menu');
+
+    images.forEach(image => {
+        image.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        image.addEventListener('touchstart', function(e) {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        image.addEventListener('mousedown', function(e) {
+            if (e.button === 2) {
+                e.preventDefault();
+            }
+        });
+    });
+
     for (let i = 0; i < slotCount; i++) {
         const slot = document.createElement('div');
         slot.className = 'slot';
@@ -108,7 +128,7 @@ function createPictureDiv(picture) {
     div.draggable = true;
     div.ondragstart = dragStart;
     div.innerHTML = `
-        <img src="${picture.src}" onclick="showOriginalSize('${picture.src}')">
+        <img class="disable-context-menu" src="${picture.src}" onclick="showOriginalSize('${picture.src}')">
         <div class="hidden-number">${picture.number}</div>
     `;
     return div;
@@ -153,6 +173,7 @@ function checkOrder() {
 
     document.getElementById('verifyBtn').disabled = false;
 
+
     // Show the pincode container
     document.getElementById('pincodeContainer').style.display = 'block';
 
@@ -162,6 +183,7 @@ function checkOrder() {
             number.style.display = 'none';
         });
     }, 1500);
+
 }
 
 // Function to show the question
@@ -194,6 +216,8 @@ function showLineAndScroll(line) {
     // Scroll to the line
     document.getElementById(line).scrollIntoView({ behavior: 'smooth' });
 }
+
+
 
 // Function to verify the pincode
 function verifyPincode() {
