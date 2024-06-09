@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +12,14 @@
             padding: 0;
             background-color: #f0f0f0;
         }
+
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
         }
+
         .row {
             width: 100%;
             display: flex;
@@ -24,7 +27,15 @@
             margin-bottom: 20px;
             flex-wrap: wrap;
         }
-        .slot, .picture {
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .slot,
+        .picture {
             width: 300px;
             height: 300px;
             margin: 10px;
@@ -37,16 +48,20 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
-        .slot:hover, .picture:hover {
+
+        .slot:hover,
+        .picture:hover {
             transform: scale(1.05);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
         }
+
         .picture img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             cursor: pointer;
         }
+
         .hidden-number {
             display: none;
             position: absolute;
@@ -62,6 +77,7 @@
             align-items: center;
             justify-content: center;
         }
+
         button {
             padding: 10px 20px;
             font-size: 18px;
@@ -72,13 +88,16 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
+
         button:hover {
             background-color: #0056b3;
         }
+
         button:disabled {
             background-color: #6c757d;
             cursor: not-allowed;
         }
+
         .title {
             font-size: 36px;
             font-weight: bold;
@@ -87,6 +106,7 @@
             color: #333;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         .modal {
             display: none;
             position: fixed;
@@ -98,6 +118,7 @@
             overflow: auto;
             background-color: rgba(0, 0, 0, 0.9);
         }
+
         .modal-content {
             margin: auto;
             display: block;
@@ -105,6 +126,7 @@
             max-height: 90%;
             object-fit: contain;
         }
+
         .close {
             position: absolute;
             top: 15px;
@@ -114,15 +136,19 @@
             font-weight: bold;
             transition: 0.3s;
         }
-        .close:hover, .close:focus {
+
+        .close:hover,
+        .close:focus {
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
         }
+
         .pincode-row {
             display: flex;
             justify-content: center;
         }
+
         .pincode-box {
             width: 50px;
             height: 50px;
@@ -133,154 +159,184 @@
             border-radius: 5px;
             outline: none;
         }
+
         @media only screen and (max-width: 768px) {
             body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-}
-.row {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-.slot, .picture {
-    width: 200px;
-    height: 200px;
-    margin: 5px;
-    border: 2px dashed #ccc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-.slot:hover, .picture:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-}
-.picture img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    cursor: pointer;
-}
-.hidden-number {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    font-size: 48px;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-button {
-    padding: 8px 16px;
-    font-size: 14px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-button:hover {
-    background-color: #0056b3;
-}
-button:disabled {
-    background-color: #6c757d;
-    cursor: not-allowed;
-}
-.title {
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    margin: 30px 0;
-    color: #333;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.9);
-}
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-}
-.close {
-    position: absolute;
-    top: 15px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-.close:hover, .close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-.pincode-row {
-    display: flex;
-    justify-content: center;
-}
-.pincode-box {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    text-align: center;
-    margin: 0 5px;
-    border: 2px solid #007bff;
-    border-radius: 5px;
-    outline: none;
-}
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+            }
 
-@media only screen and (max-width: 600px) {
-    .row {
-        flex-direction: column;
-    }
-    .hidden-number {
-        display: none;
-    }
-}
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+            }
+
+            .row {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+
+            .picture {
+                width: 100%;
+                height: 100px;
+                margin: 5px;
+                border: 2px dashed #ccc;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                background-color: white;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s;
+            }
+
+            .slot {
+                flex: 1;
+                height: 100px;
+                margin: 2px;
+            }
+
+
+            .slot:hover,
+            .picture:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .picture img {
+                /* width: 100%; */
+                height: 100%;
+                object-fit: cover;
+                cursor: pointer;
+            }
+
+            .hidden-number {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                font-size: 48px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            button {
+                padding: 8px 16px;
+                font-size: 14px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            button:disabled {
+                background-color: #6c757d;
+                cursor: not-allowed;
+            }
+
+            .title {
+                font-size: 24px;
+                font-weight: bold;
+                text-align: center;
+                margin: 30px 0;
+                color: #333;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1000;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.9);
+            }
+
+            .modal-content {
+                margin: auto;
+                display: block;
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+            }
+
+            .close {
+                position: absolute;
+                top: 15px;
+                right: 35px;
+                color: #f1f1f1;
+                font-size: 40px;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .pincode-row {
+                display: flex;
+                justify-content: center;
+            }
+
+            .pincode {
+                flex: 1;
+                /* width: 100%; */
+                height: 50px;
+                font-size: 24px;
+                text-align: center;
+                margin: 0 5px;
+                border: 2px solid #007bff;
+                border-radius: 5px;
+                outline: none;
+            }
+
+            /* 
+            @media only screen and (max-width: 600px) {
+                .row {
+                    flex-direction: row;
+                }
+
+                .hidden-number {
+                    display: none;
+                }
+            } */
 
         }
     </style>
 </head>
+
 <body>
     <h1 class="title">סדרו את התמונות בסדר בו הן צולמו</h1>
     <h2 class="title">סידור התמונות בסדר הנכון יגלה את הקוד שיוביל לשלב הבא</h2>
 
     <div class="container">
-        <div class="row" id="pictureRow">
+        <div class="grid" id="pictureRow">
             <!-- Pictures will be generated here -->
         </div>
         <div class="row" id="slotRow">
@@ -299,19 +355,20 @@ button:disabled {
             <button id="verifyBtn" onclick="verifyPincode()" style="margin-top: 10px;" disabled>Verify</button>
         </div>
         <div id="resultContainer" style="display: none; text-align: center; margin-top: 20px;">
-            <span id="verificationMark" style="font-size: 72px; color: gold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);">✓</span>
+            <span id="verificationMark"
+                style="font-size: 72px; color: gold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);">✓</span>
             <p id="resultText" style="font-size: 24px; font-weight: bold; color: #28a745;"></p>
         </div>
     </div>
-<div id="secondQuestion" class="container" style="display: none;">
-    <h1 class="title">
-        שאלה הבאה, את התשובה תגידו לברמן
-    </h1>
-    <h1 class="title">
-        
-    </h1>
-    <h2 id="dynamicTitle" class="title" dir="rtl">say it to the bartender</h2>
-</div>
+    <div id="secondQuestion" class="container" style="display: none;">
+        <h1 class="title">
+            שאלה הבאה, את התשובה תגידו לברמן
+        </h1>
+        <h1 class="title">
+
+        </h1>
+        <h2 id="dynamicTitle" class="title" dir="rtl">say it to the bartender</h2>
+    </div>
 
 
     <div id="imageModal" class="modal">
@@ -321,4 +378,5 @@ button:disabled {
 
     <script src="static/script.js"></script>
 </body>
+
 </html>
