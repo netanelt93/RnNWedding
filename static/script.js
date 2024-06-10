@@ -47,15 +47,6 @@ window.onload = function() {
         slot.className = 'slot';
         slot.ondragover = dragOver;
         slot.ondrop = drop;
-
-        // Create a new div for the slot number
-        const slotNumber = document.createElement('div');
-        slotNumber.className = 'slot-number';
-        slotNumber.textContent = i + 1; // Set the number (1, 2, 3, ...)
-
-        // Append the slot number to the slot
-        slot.appendChild(slotNumber);
-
         slotRow.appendChild(slot);
     }
 
